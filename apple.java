@@ -1,10 +1,47 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
-public class apple extends Actor
+public class Apple extends Actor
 {
     public void act()
     {
-        move(-3);
+        move(-10);
+        
+        if(getX() <=0) {
+            resetApple();
+        }
+        if(isTouching(hero.class)){
+            // Add a gameover symbol
+            SadFace sadFace =new SadFace();
+            getWorld().addObject(sadFace, 300, 200);
+            getWorld().removeObject(this);
+        }
+    }
+    
+    public void resetApple() {
+        int num = Greenfoot.getRandomNumber(2);
+        if(num== 0) {
+            setLocation(600, 100);
+        } else {
+            setLocation(600, 300);
+        }
     }
 }
+
+    
+    
+    
+        
+        
+        
+    
+        
+    
+    
+        
+        
+        
+        
+ 
+    
+    
+
